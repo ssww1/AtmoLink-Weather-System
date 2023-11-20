@@ -19,6 +19,8 @@ public class User extends SourceDataBase {
         System.out.println("Please enter the kind of data you want to get");
         int kindOfData = input.nextInt();
 
+        //copy the arrays from the SourceDataBase
+
         if (date == 1){
             switch (kindOfData){
                 
