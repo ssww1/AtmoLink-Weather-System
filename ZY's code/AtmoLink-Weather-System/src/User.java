@@ -23,7 +23,7 @@ public class User extends SourceDataBase {
 
         if (date == 1){
             switch (kindOfData){
-                
+                case 1 ->
 
             }
         }
