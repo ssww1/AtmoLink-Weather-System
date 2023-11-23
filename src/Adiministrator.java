@@ -39,5 +39,37 @@ public class Adiministrator{
         System.out.println(Data);
     }
 
+    public void ModifyData(){
+        System.out.println("Please enter the date");
+        int date=input.nextInt();
+        System.out.println("""
+        Please enter the type of the data:
+        1) weather
+        2) temperature
+        3) windforce
+        4) humidity
+        5) barometric
+        0) Exit
+
+        """);
+        int datatype=input.nextInt();
+        System.out.println("Please enter the result you want to modify");
+        if(((datatype>=0)&&(datatype<=5))&&((date>=1)&&(date<=7))){
+            switch(datatype){
+                case 0:System.exit(0);
+                case 1:w[date-1]=input.toString();
+                case 2:t[date-1]=input.nextDouble();
+                case 3:W[date-1]=input.nextInt();
+                case 4:h[date-1]=input.nextDouble();
+                case 5:b[date-1]=input.toString();
+            }
+
+
+
+        }else{
+            System.out.println("Invalid date entered:" + date);
+        }
+
+    }
 }
 
