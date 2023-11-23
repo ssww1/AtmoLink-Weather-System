@@ -73,7 +73,7 @@ public class User extends SourceDataBase {
                 switch (kindOfData) {
                     case 1 -> System.out.println(w[date - 1]);
                     case 2 -> System.out.println(t[date - 1]);
-                    case 3 -> System.out.println(w[date - 1]);
+                    case 3 -> System.out.println(W[date - 1]);
                     case 4 -> System.out.println(h[date - 1]);
                     case 5 -> System.out.println(b[date - 1]);
                     default -> System.out.println("Invalid number entered: " + kindOfData);
