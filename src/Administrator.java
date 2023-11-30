@@ -1,9 +1,9 @@
 package src;
-import javax.xml.crypto.Data;
 import java.text.MessageFormat;
+import java.util.Objects;
 import java.util.Scanner;
 
-public class Adiministrator{
+public class Administrator {
     java.util.Scanner input=new Scanner(System.in);
     Weather weather =new Weather();
     Temperature temperature =new Temperature();
@@ -18,7 +18,7 @@ public class Adiministrator{
 
     public void StartMenu(){
         System.out.println("""
-                Please enter the operation you want to perform: 
+                Please enter the operation you want to perform:
                 1. View data 
                 2. Modify data 
                 3. Delete data
@@ -71,5 +71,57 @@ public class Adiministrator{
         }
 
     }
-}
+
+    public void Filterdata(){
+        System.out.println("""
+        Please enter the type of the data you want to view and filter:
+        1) weather
+        2) temperature
+        3) windforce
+        4) humidity
+        5) barometric
+        0) Exit
+
+        """);
+        int datatype=input.nextInt();
+        System.out.println("Please enter the result you want to filter");
+        switch(datatype){
+            case 0:System.exit(0);
+            case 1:{String data=input.toString();
+                System.out.println("Dates that meet the filtering criteria are:");
+                for (int i = 0; i < w.length; i++) {
+                    if(Objects.equals(w[i], data)) {
+                        System.out.println(i + 1);
+                    }}}
+            case 2:{double data=input.nextDouble();
+                System.out.println("Dates that meet the filtering criteria are:");
+                for (int i = 0; i < t.length; i++) {
+                    if(Objects.equals(t[i], data)) {
+                        System.out.println(i + 1);
+                    }}}
+            case 3:{int data=input.nextInt();
+                System.out.println("Dates that meet the filtering criteria are:");
+                for (int i = 0; i < W.length; i++) {
+                    if(Objects.equals(W[i], data)) {
+                        System.out.println(i + 1);
+                    }}}
+            case 4:{double data=input.nextDouble();
+                System.out.println("Dates that meet the filtering criteria are:");
+                for (int i = 0; i < h.length; i++) {
+                    if(Objects.equals(h[i], data)) {
+                        System.out.println(i + 1);
+                    }}}
+            case 5:{String data=input.toString();
+                System.out.println("Dates that meet the filtering criteria are:");
+                for (int i = 0; i < b.length; i++) {
+                    if(Objects.equals(b[i], data)) {
+                        System.out.println(i + 1);
+                    }}}
+
+
+
+            }
+        }
+    }
+
 
