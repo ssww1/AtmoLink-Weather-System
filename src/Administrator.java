@@ -19,9 +19,10 @@ public class Administrator {
     public void StartMenu(){
         System.out.println("""
                 Please enter the operation you want to perform:
-                1. View data 
+                1. View data
                 2. Modify data 
-                3. Delete data
+                3. Filter data 
+                4. Delete data
                 """);
     }
 
@@ -122,6 +123,37 @@ public class Administrator {
 
             }
         }
+
+    public void Deletedata() {
+        System.out.println("Please enter the date");
+        int date=input.nextInt();
+        System.out.println("""
+        Please enter the type of the data:
+        1) weather
+        2) temperature
+        3) windforce
+        4) humidity
+        5) barometric
+        0) Exit
+
+        """);
+        int datatype=input.nextInt();
+        if(((datatype>=0)&&(datatype<=5))&&((date>=1)&&(date<=7))){
+            switch(datatype){
+                case 0:System.exit(0);
+                case 1:w[date-1]="deleteddata";
+                case 2:t[date-1]=0;
+                case 3:W[date-1]=0;
+                case 4:h[date-1]=0;
+                case 5:b[date-1]="deleteddata";
+            }
+
+
+
+        }else{
+            System.out.println("Invalid date entered:" + date);
+        }
     }
+}
 
 
