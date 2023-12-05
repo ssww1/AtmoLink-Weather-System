@@ -25,7 +25,7 @@ public class Assessment {
                      """);
             String answer = input.nextLine();
             if (answer.equals("y")) {
-                System.out.println("What day do you want weather advice on?");
+                System.out.println("What day do you want weather advice on?（1-7）");
                 int day = input.nextInt();
 
                 switch (day) {
