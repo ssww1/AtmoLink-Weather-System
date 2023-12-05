@@ -3,7 +3,7 @@ import java.util.Scanner;
 /**
  *
  * @author Chriles
- * @version 1.2.0
+ * @version 1.2.1
  *
  */
 public class Assessment {
@@ -25,7 +25,7 @@ public class Assessment {
                      """);
             String answer = input.nextLine();
             if (answer.equals("y")) {
-                System.out.println("What day do you want weather advice on?");
+                System.out.println("What day do you want weather advice on?（1-7）");
                 int day = input.nextInt();
 
                 switch (day) {
