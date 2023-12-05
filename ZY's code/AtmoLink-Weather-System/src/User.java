@@ -1,8 +1,11 @@
 import java.util.Scanner;
 
 public class User extends SourceDataBase {
+    //declaring values
     private int date;
     private int kindOfData;
+
+    //creat objects
     public void setDate(int date) {
         this.date = date;
     }
@@ -16,8 +19,8 @@ public class User extends SourceDataBase {
         return kindOfData;
     }
 
-   //main mneu of the user
-    private int mainMenu() {
+   //main mneu for the user
+    private static int mainMenu() {
         java.util.Scanner input = new Scanner(System.in);
         System.out.println("AtmoLink-Weather-System v1.0");
         System.out.println("\nPress enter key to continue...");
@@ -50,9 +53,9 @@ public class User extends SourceDataBase {
         return kindOfData & date;
     }
 
-    private void runmenu() {
+    private  void runmenu() {
         java.util.Scanner input = new Scanner(System.in);
-        //creat objects
+        //creat objects(pretend to use the arrays from  database)
         kindOfData = mainMenu();
         date = mainMenu();
         Weather weather =new Weather();
@@ -61,6 +64,7 @@ public class User extends SourceDataBase {
         Humidity humidity = new Humidity();
         Barometric barometric = new Barometric();
 
+        //obtain the arrays
         String[] w = weather.getWeather();
         double [] t = temperature.getTemperature();
         int[] W = windforce.getWindforce();
@@ -89,6 +93,10 @@ public class User extends SourceDataBase {
         System.out.println("Exiting....Goodbye!");
         System.exit(0);
 
+    }
+    //to apply the runmenu method in other classes
+    public  void applyRunmenu(){
+        runmenu();
     }
 }
 
