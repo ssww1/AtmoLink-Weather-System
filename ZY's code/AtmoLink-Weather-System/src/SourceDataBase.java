@@ -35,7 +35,7 @@ class Windforce{
 }
 class Humidity{
 
-        double[] humidity = {4.8,8.3,10.8,15.7,3.3,9.0,9.9};
+        double[] humidity = {48,83,10.8,15.7,33,9.0,9.9};
 
     public void setHumidity(double[] humidity) {
         this.humidity = humidity;

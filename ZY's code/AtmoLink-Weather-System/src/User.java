@@ -1,6 +1,8 @@
 import java.util.Scanner;
 
-public class User extends SourceDataBase {
+public class User extends Assessment{
+    //initialize the object
+    Assessment assessment =new Assessment();
     //declaring values
     private int date;
     private int kindOfData;
@@ -53,7 +55,7 @@ public class User extends SourceDataBase {
         return kindOfData & date;
     }
 
-    private  void runmenu() {
+    public void runmenu() {
         java.util.Scanner input = new Scanner(System.in);
         //creat objects(pretend to use the arrays from  database)
         kindOfData = mainMenu();
@@ -74,29 +76,26 @@ public class User extends SourceDataBase {
         while(date != 0 & kindOfData != 0) {
             if (date <= 7) {
                 switch (kindOfData) {
-                    case 1 -> System.out.println(w[date - 1]);
-                    case 2 -> System.out.println(t[date - 1]);
-                    case 3 -> System.out.println(w[date - 1]);
-                    case 4 -> System.out.println(h[date - 1]);
-                    case 5 -> System.out.println(b[date - 1]);
+                    case 1 -> System.out.println("The weather is"+w[date - 1]);
+                    case 2 -> System.out.println("The temperature is about" + t[date - 1] + "degrees");
+                    case 3 -> System.out.println("The wind force is about level" + w[date - 1]);
+                    case 4 -> System.out.println("The humidity of the air is about " + h[date - 1] + "%");
+                    case 5 -> System.out.println("The barometric of the air is about" + b[date - 1]);
                     default -> System.out.println("Invalid number entered: " + kindOfData);
                 }
-            } else {
+            }
+            else {
                 System.out.println("Invalid date entered:" + date);
             }
             System.out.println("\nPress enter key to continue...");
             input.nextLine();
-            input.nextLine();
             kindOfData = mainMenu();
             date = mainMenu();
         }
+        assessment.GetRecommendation();
         System.out.println("Exiting....Goodbye!");
         System.exit(0);
 
-    }
-    //to apply the runmenu method in other classes
-    public  void applyRunmenu(){
-        runmenu();
     }
 }
 

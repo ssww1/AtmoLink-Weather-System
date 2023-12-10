@@ -6,7 +6,7 @@ import java.util.Scanner;
  * @version 1.2.0
  *
  */
-public class Assessment {
+public class Assessment extends SourceDataBase{
     public static void GetRecommendation() {
         Weather weatherData = new Weather();
         Temperature temperatureData = new Temperature();
@@ -25,7 +25,7 @@ public class Assessment {
                      """);
             String answer = input.nextLine();
             if (answer.equals("y")) {
-                System.out.println("What day do you want weather advice on?");
+                System.out.println("Which day do you want to get your weather advice ?");
                 int day = input.nextInt();
 
                 switch (day) {
