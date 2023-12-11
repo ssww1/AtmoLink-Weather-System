@@ -24,6 +24,15 @@ public class Administrator {
                 3. Filter data 
                 4. Delete data
                 """);
+
+        Scanner input=new Scanner(System.in);
+        int intinput=input.nextInt();
+        switch(intinput){
+            case 1:ViewData();
+            case 2:ModifyData();
+            case 3:Filterdata();
+            case 4:Deletedata();
+        }
     }
 
     public void ViewData(){
@@ -57,7 +66,7 @@ public class Administrator {
         System.out.println("Please enter the result you want to modify");
         if(((datatype>=0)&&(datatype<=5))&&((date>=1)&&(date<=7))){
             switch(datatype){
-                case 0:System.exit(0);
+                case 0:StartMenu();
                 case 1:w[date-1]=input.toString();
                 case 2:t[date-1]=input.nextDouble();
                 case 3:W[date-1]=input.nextInt();
@@ -68,7 +77,8 @@ public class Administrator {
 
 
         }else{
-            System.out.println("Invalid date entered:" + date);
+            System.out.println("Invalid data entered, please try again");
+            ModifyData();
         }
 
     }
@@ -86,8 +96,9 @@ public class Administrator {
         """);
         int datatype=input.nextInt();
         System.out.println("Please enter the result you want to filter");
+        if((datatype>0)&&(datatype<6)){
         switch(datatype){
-            case 0:System.exit(0);
+            case 0:StartMenu();
             case 1:{String data=input.toString();
                 System.out.println("Dates that meet the filtering criteria are:");
                 for (int i = 0; i < w.length; i++) {
@@ -118,10 +129,13 @@ public class Administrator {
                     if(Objects.equals(b[i], data)) {
                         System.out.println(i + 1);
                     }}}
-
-
-
             }
+
+    }else{
+            System.out.println("Invalid data entered, please try again");
+            Filterdata();
+        }
+
         }
 
     public void Deletedata() {
@@ -140,18 +154,20 @@ public class Administrator {
         int datatype=input.nextInt();
         if(((datatype>=0)&&(datatype<=5))&&((date>=1)&&(date<=7))){
             switch(datatype){
-                case 0:System.exit(0);
-                case 1:w[date-1]="deleteddata";
+                case 0:StartMenu();
+                case 1:w[date-1]="default";
                 case 2:t[date-1]=0;
                 case 3:W[date-1]=0;
                 case 4:h[date-1]=0;
-                case 5:b[date-1]="deleteddata";
+                case 5:b[date-1]="default";
             }
 
 
 
         }else{
-            System.out.println("Invalid date entered:" + date);
+            System.out.println("Invalid data entered, please try again");
+            Deletedata();
+
         }
     }
 }
