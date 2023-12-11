@@ -1,13 +1,9 @@
+package src;
 import java.util.Scanner;
 
-public class User extends Assessment{
-    //initialize the object
-    Assessment assessment =new Assessment();
-    //declaring values
+public class User extends SourceDataBase {
     private int date;
     private int kindOfData;
-
-    //creat objects
     public void setDate(int date) {
         this.date = date;
     }
@@ -21,10 +17,12 @@ public class User extends Assessment{
         return kindOfData;
     }
 
-   //main mneu for the user
-    private static int mainMenu() {
+   //main mneu of the user
+    private int mainMenu() {
         java.util.Scanner input = new Scanner(System.in);
+        System.out.println("AtmoLink-Weather-System v1.0");
         System.out.println("\nPress enter key to continue...");
+        input.nextLine();
         input.nextLine();
         System.out.print("""
                 consultant menu
@@ -53,9 +51,9 @@ public class User extends Assessment{
         return kindOfData & date;
     }
 
-    public void runmenu() {
+    private void runmenu() {
         java.util.Scanner input = new Scanner(System.in);
-        //creat objects(pretend to use the arrays from  database)
+        //creat objects
         kindOfData = mainMenu();
         date = mainMenu();
         Weather weather =new Weather();
@@ -64,7 +62,6 @@ public class User extends Assessment{
         Humidity humidity = new Humidity();
         Barometric barometric = new Barometric();
 
-        //obtain the arrays
         String[] w = weather.getWeather();
         double [] t = temperature.getTemperature();
         int[] W = windforce.getWindforce();
@@ -74,25 +71,25 @@ public class User extends Assessment{
         while(date != 0 & kindOfData != 0) {
             if (date <= 7) {
                 switch (kindOfData) {
-                    case 1 -> System.out.println("The weather is"+w[date - 1]);
-                    case 2 -> System.out.println("The temperature is about" + t[date - 1] + "degrees");
-                    case 3 -> System.out.println("The wind force is about level" + w[date - 1]);
-                    case 4 -> System.out.println("The humidity of the air is about " + h[date - 1] + "%");
-                    case 5 -> System.out.println("The barometric of the air is about" + b[date - 1]);
+                    case 1 -> System.out.println(w[date - 1]);
+                    case 2 -> System.out.println(t[date - 1]);
+                    case 3 -> System.out.println(W[date - 1]);
+                    case 4 -> System.out.println(h[date - 1]);
+                    case 5 -> System.out.println(b[date - 1]);
                     default -> System.out.println("Invalid number entered: " + kindOfData);
                 }
-            }
-            else {
+            } else {
                 System.out.println("Invalid date entered:" + date);
             }
             System.out.println("\nPress enter key to continue...");
             input.nextLine();
+            input.nextLine();
             kindOfData = mainMenu();
             date = mainMenu();
         }
-        assessment.GetRecommendation();
         System.out.println("Exiting....Goodbye!");
         System.exit(0);
+
     }
 }
 

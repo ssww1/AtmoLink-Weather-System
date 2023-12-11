@@ -2,14 +2,13 @@ import java.text.MessageFormat;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class Administrator extends SourceDataBase{
+public class Administrator {
     java.util.Scanner input=new Scanner(System.in);
     Weather weather =new Weather();
     Temperature temperature =new Temperature();
     Windforce windforce =new Windforce();
     Humidity humidity = new Humidity();
     Barometric barometric = new Barometric();
-
     String[] w = weather.getWeather();
     double [] t = temperature.getTemperature();
     int[] W = windforce.getWindforce();
@@ -24,6 +23,15 @@ public class Administrator extends SourceDataBase{
                 3. Filter data 
                 4. Delete data
                 """);
+
+        Scanner input=new Scanner(System.in);
+        int intinput=input.nextInt();
+        switch(intinput){
+            case 1:ViewData();
+            case 2:ModifyData();
+            case 3:Filterdata();
+            case 4:Deletedata();
+        }
     }
 
     public void ViewData(){
@@ -40,7 +48,7 @@ public class Administrator extends SourceDataBase{
         System.out.println(Data);
     }
 
-    private void ModifyData(){
+    public void ModifyData(){
         System.out.println("Please enter the date");
         int date=input.nextInt();
         System.out.println("""
@@ -57,7 +65,7 @@ public class Administrator extends SourceDataBase{
         System.out.println("Please enter the result you want to modify");
         if(((datatype>=0)&&(datatype<=5))&&((date>=1)&&(date<=7))){
             switch(datatype){
-                case 0:System.exit(0);
+                case 0:StartMenu();
                 case 1:w[date-1]=input.toString();
                 case 2:t[date-1]=input.nextDouble();
                 case 3:W[date-1]=input.nextInt();
@@ -68,12 +76,13 @@ public class Administrator extends SourceDataBase{
 
 
         }else{
-            System.out.println("Invalid date entered:" + date);
+            System.out.println("Invalid data entered, please try again");
+            ModifyData();
         }
 
     }
 
-    private void Filterdata(){
+    public void Filterdata(){
         System.out.println("""
         Please enter the type of the data you want to view and filter:
         1) weather
@@ -86,8 +95,9 @@ public class Administrator extends SourceDataBase{
         """);
         int datatype=input.nextInt();
         System.out.println("Please enter the result you want to filter");
+        if((datatype>0)&&(datatype<6)){
         switch(datatype){
-            case 0:System.exit(0);
+            case 0:StartMenu();
             case 1:{String data=input.toString();
                 System.out.println("Dates that meet the filtering criteria are:");
                 for (int i = 0; i < w.length; i++) {
@@ -118,13 +128,16 @@ public class Administrator extends SourceDataBase{
                     if(Objects.equals(b[i], data)) {
                         System.out.println(i + 1);
                     }}}
-
-
-
             }
+
+    }else{
+            System.out.println("Invalid data entered, please try again");
+            Filterdata();
         }
 
-    private void Deletedata() {
+        }
+
+    public void Deletedata() {
         System.out.println("Please enter the date");
         int date=input.nextInt();
         System.out.println("""
@@ -140,18 +153,20 @@ public class Administrator extends SourceDataBase{
         int datatype=input.nextInt();
         if(((datatype>=0)&&(datatype<=5))&&((date>=1)&&(date<=7))){
             switch(datatype){
-                case 0:System.exit(0);
-                case 1:w[date-1]="deleteddata";
+                case 0:StartMenu();
+                case 1:w[date-1]="default";
                 case 2:t[date-1]=0;
                 case 3:W[date-1]=0;
                 case 4:h[date-1]=0;
-                case 5:b[date-1]="deleteddata";
+                case 5:b[date-1]="default";
             }
 
 
 
         }else{
-            System.out.println("Invalid date entered:" + date);
+            System.out.println("Invalid data entered, please try again");
+            Deletedata();
+
         }
     }
 }
