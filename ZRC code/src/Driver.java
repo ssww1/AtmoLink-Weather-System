@@ -10,7 +10,7 @@ public class Driver {
         Administrator administrator = new Administrator();
         Login login = new Login();
 
-        login.Userlogin();
+
         login.getUsername();
 
         if (login.username.equals("User")){

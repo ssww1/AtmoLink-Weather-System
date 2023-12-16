@@ -22,7 +22,7 @@ public class Login {
     public String Userlogin() {
         InitializeDatabase();
 
-        String result = "login failed";
+        String result = "log in failed";
         Scanner input = new Scanner(System.in);
 
         while (true) {
@@ -35,12 +35,16 @@ public class Login {
             for (int i = 0; i < 10; i++) {
                 if (enteredUsername.equals(users[i]) && password.equals(passwords[i])) {
                     result = enteredUsername;
-                    return result; // exit the method when credentials are correct
+                    break;//to break out of the loop
                 }
             }
 
+            if (!result.equals("log in failed")){
+                break;//break out of the while loop
+            }
             System.out.println("User name or password wrong, please try again");
         }
+        return result;
     }
 }
 
