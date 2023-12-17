@@ -34,6 +34,7 @@ public class Administrator{
             case 3:Filterdata();
             case 4:Deletedata();
         }
+
     }
 
     public void ViewData(){
@@ -48,6 +49,7 @@ public class Administrator{
                 """);
         Data= MessageFormat.format(Data,w[0],t[0],h[0],W[0],b[0],w[1],t[1],h[1],W[1],b[1],w[2],t[2],h[2],W[2],b[2],w[3],t[3],h[3],W[3],b[3],w[4],t[4],h[4],W[4],b[4],w[5],t[5],h[5],W[5],b[5],w[6],t[6],h[6],W[6],b[6]);
         System.out.println(Data);
+        StartMenu();
     }
 
     public void ModifyData(){
@@ -67,15 +69,15 @@ public class Administrator{
         System.out.println("Please enter the result you want to modify");
         if(((datatype>=0)&&(datatype<=5))&&((date>=1)&&(date<=7))){
             switch(datatype){
-                case 0:StartMenu();
-                case 1:w[date-1]=input.toString();
-                case 2:t[date-1]=input.nextDouble();
-                case 3:W[date-1]=input.nextInt();
-                case 4:h[date-1]=input.nextDouble();
-                case 5:b[date-1]=input.toString();
+                case 0:StartMenu();break;
+                case 1:w[date-1]=input.toString();break;
+                case 2:t[date-1]=input.nextDouble();break;
+                case 3:W[date-1]=input.nextInt();break;
+                case 4:h[date-1]=input.nextDouble();break;
+                case 5:b[date-1]=input.toString();break;
             }
-
-
+            System.out.println("Modifying successfully");
+            StartMenu();
 
         }else{
             System.out.println("Invalid data entered, please try again");
@@ -131,6 +133,7 @@ public class Administrator{
                         System.out.println(i + 1);
                     }}}
             }
+            StartMenu();
 
     }else{
             System.out.println("Invalid data entered, please try again");
@@ -162,7 +165,8 @@ public class Administrator{
                 case 4:h[date-1]=0;
                 case 5:b[date-1]="default";
             }
-
+            System.out.println("Deleting successfully");
+            StartMenu();
 
 
         }else{
