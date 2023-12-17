@@ -5,7 +5,7 @@ public class Driver {
 
     //main codes to run the whole app
     public static void main(String[] args) {
-        System.out.println("AtmoLink-Weather-System v1.0");
+        System.out.println("AtmoLink-Weather-System v1.0\n\n");
 
         //initialize the objects
         User user = new User();

@@ -84,7 +84,7 @@ public class Assessment {
             // Ask the user if they want to continue
             System.out.print("Do you want to continue? (y/n): ");
             String continueAnswer = input.nextLine();
-            if (!continueAnswer.equals("y")) {
+            if (continueAnswer.equals("y")) {
                 continueProgram = false;
             }
         }
