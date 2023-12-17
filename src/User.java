@@ -57,9 +57,10 @@ public class User extends Assessment{
 
     public void runmenu() {
         java.util.Scanner input = new Scanner(System.in);
+        
         // objects(pretend to use the arrays from  database)
-        kindOfData = mainMenu();
-        date = mainMenu();
+        kindOfData = date = mainMenu();
+        
         Weather weather =new Weather();
         Temperature temperature =new Temperature();
         Windforce windforce =new Windforce();
