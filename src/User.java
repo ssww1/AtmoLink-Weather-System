@@ -24,7 +24,7 @@ public class User extends Assessment{
     }
 
 
-    private static int mainMenu() {
+    public static int mainMenu() {
         java.util.Scanner input = new Scanner(System.in);
         System.out.println("\nPress enter key to continue...");
         input.nextLine();
@@ -40,7 +40,7 @@ public class User extends Assessment{
                    7) day7
                    0) Exit
                 ==>>""");
-        int date = input.nextInt();
+         int date = input.nextInt() ;
         System.out.println("""
                  consultant menu
                  -----------------
@@ -52,7 +52,7 @@ public class User extends Assessment{
                    0) Exit
                 """);
         int kindOfData = input.nextInt();
-        return kindOfData & date;
+        return  date;
     }
 
     public void runmenu() {
@@ -73,7 +73,7 @@ public class User extends Assessment{
         double[] h = humidity.getHumidity();
         String[] b = barometric.getBarometric();
 
-        while(date != 0 & kindOfData != 0) {
+        while(date != 0 && kindOfData != 0) {
             if (date <= 7) {
                 switch (kindOfData) {
                     case 1 -> System.out.println("The weather is"+w[date - 1]);
@@ -89,11 +89,12 @@ public class User extends Assessment{
             }
             System.out.println("\nPress enter key to continue...");
             input.nextLine();
-            kindOfData = mainMenu();
-            date = mainMenu();
+            date = kindOfData = mainMenu();
+
         }
-        Assessment assessment =new Assessment();
-        assessment.GetRecommendation();
+
+        Assessment assessment = new Assessment();
+        assessment.GetRecommendation(date);
         System.out.println("Exiting....Goodbye!");
         System.exit(0);
     }

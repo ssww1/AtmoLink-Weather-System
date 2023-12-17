@@ -9,7 +9,8 @@ import java.util.Scanner;
  *
  */
 public class Assessment {
-    public  void GetRecommendation() {
+
+    public  void GetRecommendation(int selectedDate) {
         Weather weatherData = new Weather();
         Temperature temperatureData = new Temperature();
         Windforce windforceData = new Windforce();
@@ -27,10 +28,9 @@ public class Assessment {
                      """);
             String answer = input.nextLine();
             if (answer.equals("y")) {
-                System.out.println("Which day do you want to get your weather advice ?");
-                int day = input.nextInt();
 
-                switch (day) {
+
+                switch (selectedDate) {
                     case 1:
                     case 2:
                     case 3:
@@ -38,6 +38,8 @@ public class Assessment {
                     case 5:
                     case 6:
                     case 7:
+
+                        int day = selectedDate;
                         System.out.println("In the day" + day +" We have some suggestions as follow :");
 
                         // Clothing recommendation
