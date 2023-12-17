@@ -1,44 +1,54 @@
-package src;
-
 import java.util.Scanner;
 
 public class Login {
-    String[] users=new String[10];
-    String[] passwords=new String[10];
+    String username;
+    String[] users = new String[10];
+    String[] passwords = new String[10];
 
-    public void InitializeDatabase(){
-
-        users[0]="Administrator";
-        passwords[0]="1234";
+    public void getUsername() {
+        this.username = Userlogin();
     }
 
-    public String Userlogin(){
+    //give initial user's name and user's password
+    public void InitializeDatabase() {
+
+        users[0] = "Administrator";
+        passwords[0] = "1234";
+
+        users[1] = "User";
+        passwords[1] = "0000";
+    }
+
+    public String Userlogin() {
         InitializeDatabase();
 
-        String result;
-        Scanner input=new Scanner(System.in);
-        System.out.println("Please enter your username:");
-        String username=input.toString();
-        System.out.println("Please enter your password:");
-        String password=input.toString();
+        String result = "log in failed";
+        Scanner input = new Scanner(System.in);
 
-        for (int i = 0; i < 10; i++) {
-            if(username.equals(users[i])){
-                if(password.equals(passwords[i])){
-                    result=username;
-                    return result;
-                }else{
-                    System.out.println("password incorrect");
-                    System.out.println("login failed");
-                    Userlogin();
+        while (true) {
+            System.out.println("Please enter your username:" + "(please enter Administrator or User)");
+            String enteredUsername = input.next();
+
+            System.out.println("Please enter your password:" + "(it should include 4 characters)");
+            String password = input.next();
+
+            for (int i = 0; i < 10; i++) {
+                if (enteredUsername.equals(users[i]) && password.equals(passwords[i])) {
+                    result = enteredUsername;
+                    break;//to break out of the loop
                 }
             }
 
+            if (!result.equals("log in failed")){
+                break;//break out of the while loop
+            }
+            System.out.println("User name or password wrong, please try again");
         }
-        System.out.println("user not found");
-        result="login failed";
-        Userlogin();
         return result;
     }
 }
+
+
+
+
 

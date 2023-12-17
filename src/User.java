@@ -1,9 +1,13 @@
-package src;
 import java.util.Scanner;
 
-public class User extends SourceDataBase {
+public class User extends Assessment{
+    //initialize the object
+
+    //declaring values
     private int date;
     private int kindOfData;
+
+    //get and set methods
     public void setDate(int date) {
         this.date = date;
     }
@@ -17,12 +21,10 @@ public class User extends SourceDataBase {
         return kindOfData;
     }
 
-   //main mneu of the user
-    private int mainMenu() {
+
+    private static int mainMenu() {
         java.util.Scanner input = new Scanner(System.in);
-        System.out.println("AtmoLink-Weather-System v1.0");
         System.out.println("\nPress enter key to continue...");
-        input.nextLine();
         input.nextLine();
         System.out.print("""
                 consultant menu
@@ -34,8 +36,8 @@ public class User extends SourceDataBase {
                    5) day5
                    6) day6
                    7) day7
-                   0) Exit  
-                ==>> """);
+                   0) Exit
+                ==>>""");
         int date = input.nextInt();
         System.out.println("""
                  consultant menu
@@ -45,15 +47,15 @@ public class User extends SourceDataBase {
                    3) windforce
                    4) humidity
                    5) barometric
-                   0) Exit   
+                   0) Exit
                 """);
         int kindOfData = input.nextInt();
         return kindOfData & date;
     }
 
-    private void runmenu() {
+    public void runmenu() {
         java.util.Scanner input = new Scanner(System.in);
-        //creat objects
+        // objects(pretend to use the arrays from  database)
         kindOfData = mainMenu();
         date = mainMenu();
         Weather weather =new Weather();
@@ -62,6 +64,7 @@ public class User extends SourceDataBase {
         Humidity humidity = new Humidity();
         Barometric barometric = new Barometric();
 
+        //obtain the arrays
         String[] w = weather.getWeather();
         double [] t = temperature.getTemperature();
         int[] W = windforce.getWindforce();
@@ -71,29 +74,28 @@ public class User extends SourceDataBase {
         while(date != 0 & kindOfData != 0) {
             if (date <= 7) {
                 switch (kindOfData) {
-                    case 1 -> System.out.println(w[date - 1]);
-                    case 2 -> System.out.println(t[date - 1]);
-                    case 3 -> System.out.println(W[date - 1]);
-                    case 4 -> System.out.println(h[date - 1]);
-                    case 5 -> System.out.println(b[date - 1]);
+                    case 1 -> System.out.println("The weather is"+w[date - 1]);
+                    case 2 -> System.out.println("The temperature is about" + t[date - 1] + "degrees");
+                    case 3 -> System.out.println("The wind force is about level" + W[date - 1]);
+                    case 4 -> System.out.println("The humidity of the air is about " + h[date - 1] + "%");
+                    case 5 -> System.out.println("The barometric of the air is about" + b[date - 1]);
                     default -> System.out.println("Invalid number entered: " + kindOfData);
                 }
-            } else {
+            }
+            else {
                 System.out.println("Invalid date entered:" + date);
             }
             System.out.println("\nPress enter key to continue...");
             input.nextLine();
-            input.nextLine();
             kindOfData = mainMenu();
             date = mainMenu();
         }
+        Assessment assessment =new Assessment();
+        assessment.GetRecommendation();
         System.out.println("Exiting....Goodbye!");
         System.exit(0);
-
     }
 }
-
-
 
 
 

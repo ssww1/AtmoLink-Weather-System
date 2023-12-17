@@ -1,4 +1,3 @@
-package src;
 import java.text.MessageFormat;
 import java.util.Objects;
 import java.util.Scanner;

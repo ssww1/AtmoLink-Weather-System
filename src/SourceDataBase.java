@@ -1,4 +1,3 @@
-package src;
 public class SourceDataBase {
 }
 
@@ -14,13 +13,13 @@ class Weather{
 
 class Temperature{
 
-        double[] temperature = {10.8,8.0,5.0,4.5,8.0,-2.0,-10.0};
-        public double[] getTemperature() {
+    double[] temperature = {10.8,8.0,5.0,4.5,8.0,-2.0,-10.0};
+    public double[] getTemperature() {
         return temperature;
-        }
-        public void setTemperature(double[] temperature) {
+    }
+    public void setTemperature(double[] temperature) {
         this.temperature = temperature;
-        }
+    }
 }
 
 class Windforce{
@@ -36,7 +35,7 @@ class Windforce{
 }
 class Humidity{
 
-        double[] humidity = {4.8,8.3,10.8,15.7,3.3,9.0,9.9};
+    double[] humidity = {48,83,10.8,15.7,33,9.0,9.9};
 
     public void setHumidity(double[] humidity) {
         this.humidity = humidity;
@@ -49,7 +48,7 @@ class Humidity{
 
 class Barometric{
 
-        String[] barometric = {"1018hpa","1028hpa","1076hpa","1172hpa","1009hpa","1017hpa","1016hpa"};
+    String[] barometric = {"1018hpa","1028hpa","1076hpa","1172hpa","1009hpa","1017hpa","1016hpa"};
 
     public String[] getBarometric() {
         return barometric;
@@ -59,6 +58,9 @@ class Barometric{
         this.barometric = barometric;
     }
 }
+
+
+
 
 
 
