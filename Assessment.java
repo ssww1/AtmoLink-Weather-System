@@ -1,3 +1,5 @@
+import src.*;
+
 import java.util.Scanner;
 
 /**

@@ -1,3 +1,5 @@
+package src;
+
 import java.util.Scanner;
 
 /**
@@ -6,7 +8,7 @@ import java.util.Scanner;
  * @version 1.2.1
  *
  */
-public class Assessment extends SourceDataBase{
+public class Assessment {
     public  void GetRecommendation() {
         Weather weatherData = new Weather();
         Temperature temperatureData = new Temperature();

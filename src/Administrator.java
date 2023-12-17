@@ -1,8 +1,10 @@
+package src;
+
 import java.text.MessageFormat;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class Administrator {
+public class Administrator{
     java.util.Scanner input=new Scanner(System.in);
     Weather weather =new Weather();
     Temperature temperature =new Temperature();
