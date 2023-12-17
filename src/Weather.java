@@ -1,7 +1,7 @@
 package src;
 
 public class Weather {
-    private String[] weather = {"sunny", "cloudy", "drizzle", "rainstorm", "snow", "snowstorms","sunny"};
+    private String[] weather = {"sunny", "cloudy", "drizzle", "rainstorm", "snow", "snowstorms", "sunny"};
 
     public String[] getWeather() {
         return weather;
